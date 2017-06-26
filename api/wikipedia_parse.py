@@ -120,10 +120,12 @@ def first_paragraph_links(pagename):
         # this loop, if an article contains links in the first section but not
         # in the first paragraph, wikipedia-map will find the first paragraph
         # that *does* contain links.
-        while p.get_text() and not get_links(p):
+        l = []
+        while p.get_text() and not n == 10:
             p = get_nth_paragraph(html, n)
             n += 1
-        return get_links(p)
+            l.extend(get_links(p))
+        return l
 
 
 def get_random_article():
