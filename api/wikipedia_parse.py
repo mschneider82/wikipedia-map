@@ -84,7 +84,7 @@ def get_nth_paragraph(html, n):
     if html is None:
         return None
     else:
-        ps = html.find_all("p", recursive=False)
+        ps = html.find_all("p", recursive=True)
         # If the first paragraph in the HTML is that thing about coordinates,
         # shift the index by 1 so that we find only paragraphs of text.
         if ps[0].find("span", id="coordinates"):
